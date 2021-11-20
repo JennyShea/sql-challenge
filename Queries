@@ -1,0 +1,49 @@
+--Query One: Employee List with first name, last name, sex, salary
+SELECT first_name, last_name, sex, emp_no
+FROM employees;
+
+SELECT salary
+FROM salaries;
+
+SELECT e.first_name,e.last_name,e.sex,s.salary
+FROM employees e
+JOIN salaries s
+ON(e.emp_no = s.emp_no);
+
+
+--Query Two: Employees Hired in 1986 by first & last name
+SELECT first_name,last_name
+FROM employees
+WHERE (hire_date BETWEEN '1986-01-01' AND '1986-12-31')
+
+--Query Three: Manager List with department number, department name, manager's employee id, & first and last name (REQUIRES dept_manager table)
+SELECT dept_id,dept_name
+FROM department;
+
+SELECT emp_no,first_name,last_name
+FROM employees;
+WHERE title_id = "m0001"
+
+SELECT d.dept_id,d.dept_name,e.emp_no,e.first_name,e.last_name
+FROM employees e
+JOIN department d
+ON
+
+--Query Four: Departments List (REQUIRES dept_emp table)
+
+--Query Five: Employees Named Hercules, Last name starts with "B"
+SELECT first_name,last_name
+FROM employees
+WHERE first_name = 'Hercules' AND last_name LIKE 'B*'
+
+--Query Five: (REQUIRES dept_emp table)
+
+--Query Six: (REQUIRES dept_emp table)
+
+--Query Seven: Employee List Grouped by Last Name
+SELECT last_name
+FROM employees
+ORDER BY last_name
+
+
+

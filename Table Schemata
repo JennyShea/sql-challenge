@@ -1,0 +1,57 @@
+-- Create tables
+
+CREATE TABLE department (
+  dept_id VARCHAR(6)NOT NULL,
+  dept_name VARCHAR(30)NOT NULL,
+  PRIMARY KEY (dept_id)
+);
+
+INSERT INTO department(dept_id,dept_name)
+VALUES
+	('d0001','Marketing'),
+	('d0002','Finance'),
+	('d0003','Human Resources'),
+	('d0004','Production'),
+	('d0005','Development'),
+	('d0006','Quality Management'),
+	('d0007','Sales'),
+	('d0008','Research'),
+	('d0009','Customer Service');
+
+CREATE TABLE titles (
+	title_id VARCHAR(5)NOT NULL, 
+	title VARCHAR(40)NOT NULL,
+	PRIMARY KEY (title_id)
+);
+
+INSERT INTO titles(title_id,title)
+VALUES 
+	('s0001', 'Staff'),
+	('s0002', 'Senior Staff'),
+	('e0001', 'Assistant Engineer'),
+	('e0002', 'Engineer'),
+	('e0003', 'Senior Engineer'),
+	('e0004', 'Techique Leader'),
+	('m0001', 'Manager');
+
+
+CREATE TABLE employees (
+	emp_no VARCHAR(10)NOT Null,
+	emp_title VARCHAR(5)NOT Null,
+	birth_date DATE NOT Null,
+	first_name VARCHAR(50)NOT Null,
+	last_name VARCHAR(50)NOT Null,
+	sex VARCHAR(1)NOT Null,
+	hire_date DATE NOT Null,
+	PRIMARY KEY (emp_no),
+	FOREIGN KEY (emp_title) REFERENCES titles(title_id)
+);
+	
+CREATE TABLE salaries (
+	emp_no VARCHAR(10)NOT Null,
+	salary INTEGER NOT Null,
+	PRIMARY KEY (emp_no),
+	FOREIGN KEY(emp_no) REFERENCES employees(emp_no)
+);
+
+
